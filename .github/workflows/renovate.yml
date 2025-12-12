@@ -1,0 +1,22 @@
+name: Renovate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * *"
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v44.0.5
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          configurationFile: renovate-config.js
+        env:
+          LOG_LEVEL: "debug"
+          RENOVATE_REPOSITORIES: "acn-r2d2/nautilus"
