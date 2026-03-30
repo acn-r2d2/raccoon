@@ -10,6 +10,7 @@ module.exports = {
   onboarding: true,
   onboardingCommitMessage: "add renovate.json",
   onboardingPrTitle: "configure renovate",
+  automerge: true,
   major: {
     semanticCommitType: "feat",
     commitMessagePrefix: "feat(deps):",
